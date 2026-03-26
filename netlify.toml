@@ -1,0 +1,22 @@
+[build]
+  publish = "."
+  command = "echo 'No build step needed for static site'"
+
+[dev]
+  publish = "."
+  port = 8000
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
