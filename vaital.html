@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaiTAL - AI Personal Health Intelligence | RUZZEL MAESTRO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Space+Grotesk:wght@300;400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#ffb4a8",
+                        "primary-container": "#800000",
+                        "on-surface-variant": "#e2bfb9",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "outline-variant": "#5a413d"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body">
+
+<!-- Navigation -->
+<header class="fixed top-0 w-full flex justify-between items-center px-8 py-6 bg-[#0E0E0E]/80 backdrop-blur-xl z-50 border-b border-outline-variant/10">
+    <div class="text-xl font-black text-white tracking-[0.2em] font-headline">RUZZEL MAESTRO</div>
+    <nav class="hidden md:flex items-center gap-12">
+        <a href="index.html" class="font-headline font-bold uppercase tracking-tighter text-white/60 hover:text-white transition-colors">Home</a>
+        <a href="index.html#case-studies" class="font-headline font-bold uppercase tracking-tighter text-white/60 hover:text-white transition-colors">Case Studies</a>
+    </nav>
+    <a href="index.html" class="bg-primary-container text-white px-6 py-2 font-headline font-bold uppercase tracking-tighter hover:shadow-[0_0_20px_#800000]">Back Home</a>
+</header>
+
+<!-- Case Study Hero -->
+<main class="pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6 md:px-24">
+        <!-- Breadcrumb -->
+        <div class="mb-12">
+            <a href="index.html" class="font-label text-primary uppercase tracking-widest text-xs font-bold hover:text-primary/80">← Back to Portfolio</a>
+        </div>
+
+        <!-- Title Section -->
+        <div class="mb-16">
+            <div class="inline-block bg-primary-container/20 text-primary font-label text-xs uppercase tracking-widest font-bold px-4 py-2 mb-6">Healthcare AI</div>
+            <h1 class="font-headline text-5xl md:text-6xl font-black text-white tracking-tight mb-6">VaiTAL: AI Medical Test Results Tracker</h1>
+            <p class="font-body text-on-surface-variant text-lg max-w-3xl">Progressive web app that transforms scattered lab reports into unified health intelligence. AI extracts biomarkers, tracks trends, flags drug interactions, and provides personalized health insights.</p>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="mb-20 relative overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=600&fit=crop" alt="VaiTAL - Health Intelligence" class="w-full h-auto object-cover border border-primary-container/30">
+        </div>
+
+        <!-- The Challenge -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div>
+                <h2 class="font-headline text-3xl font-bold text-white mb-6">The Challenge</h2>
+                <p class="font-body text-on-surface-variant leading-relaxed mb-4">Patients struggle to understand and manage medical test results and medication intake schedules. Critical health information remains siloed across providers, leading to missed drug interactions and suboptimal treatment adherence. Manual tracking is error-prone and time-consuming, creating friction in personalized health management and increasing the risk of adverse outcomes.</p>
+            </div>
+            <div class="bg-surface-container-low p-8 border-l-4 border-primary-container">
+                <div class="font-label text-primary uppercase tracking-widest text-xs font-bold mb-4">The Problem</div>
+                <ul class="font-body text-on-surface-variant space-y-3">
+                    <li>• Scattered lab reports across providers</li>
+                    <li>• No trend visibility or context</li>
+                    <li>• Medication management is manual & error-prone</li>
+                    <li>• Missed drug interactions</li>
+                    <li>• Poor treatment adherence</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The Solution -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div class="order-2 md:order-2">
+                <h2 class="font-headline text-3xl font-bold text-white mb-6">The Solution</h2>
+                <p class="font-body text-on-surface-variant leading-relaxed mb-4">An AI-powered platform that ingests medical data from multiple sources, automatically analyzes test results in plain language, tracks medication adherence, flags potential interactions, and provides personalized health insights. Integration with wearables and pharmacy systems creates a unified health intelligence layer, resulting in improved medication adherence and reduced emergency interventions.</p>
+            </div>
+            <div class="bg-surface-container-high p-8 border-l-4 border-primary order-1 md:order-1">
+                <div class="font-label text-primary uppercase tracking-widest text-xs font-bold mb-4">Key Capabilities</div>
+                <ul class="font-body text-on-surface-variant space-y-3">
+                    <li>• AI-powered biomarker extraction</li>
+                    <li>• Trend analysis & visualization</li>
+                    <li>• Drug interaction detection</li>
+                    <li>• Medication adherence tracking</li>
+                    <li>• Wearable & pharmacy integration</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="bg-primary-container/10 border border-primary-container/30 p-12 rounded-lg mb-20">
+            <h2 class="font-headline text-3xl font-bold text-white mb-8">Results & Impact</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="font-headline text-4xl font-black text-primary mb-2">35%</div>
+                    <p class="font-body text-on-surface-variant text-sm">Improvement in medication adherence</p>
+                </div>
+                <div>
+                    <div class="font-headline text-4xl font-black text-primary mb-2">30sec</div>
+                    <p class="font-body text-on-surface-variant text-sm">Lab report processing time</p>
+                </div>
+                <div>
+                    <div class="font-headline text-4xl font-black text-primary mb-2">100%</div>
+                    <p class="font-body text-on-surface-variant text-sm">Data unified & accessible</p>
+                </div>
+                <div>
+                    <div class="font-headline text-4xl font-black text-primary mb-2">↓</div>
+                    <p class="font-body text-on-surface-variant text-sm">Emergency interventions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="mb-20">
+            <h2 class="font-headline text-3xl font-bold text-white mb-8">Technology Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-surface-container p-6 border border-outline-variant/20">
+                    <div class="font-label text-primary uppercase tracking-widest text-xs font-bold mb-2">Frontend</div>
+                    <p class="font-body text-on-surface-variant">Next.js + React PWA</p>
+                </div>
+                <div class="bg-surface-container p-6 border border-outline-variant/20">
+                    <div class="font-label text-primary uppercase tracking-widest text-xs font-bold mb-2">Backend</div>
+                    <p class="font-body text-on-surface-variant">Supabase + PostgreSQL</p>
+                </div>
+                <div class="bg-surface-container p-6 border border-outline-variant/20">
+                    <div class="font-label text-primary uppercase tracking-widest text-xs font-bold mb-2">AI/Vision</div>
+                    <p class="font-body text-on-surface-variant">Gemini API (vision)</p>
+                </div>
+                <div class="bg-surface-container p-6 border border-outline-variant/20">
+                    <div class="font-label text-primary uppercase tracking-widest text-xs font-bold mb-2">Integrations</div>
+                    <p class="font-body text-on-surface-variant">Wearables, Pharmacy APIs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-surface-container-high p-12 border border-primary-container/30 text-center">
+            <h2 class="font-headline text-3xl font-bold text-white mb-4">Take Control of Your Health Data</h2>
+            <p class="font-body text-on-surface-variant mb-8 max-w-2xl mx-auto">VaiTAL turns scattered lab reports into actionable health insights. Understand your trends. Manage your medications. Live healthier.</p>
+            <a href="https://vaital.vercel.app/login" target="_blank" class="inline-block bg-primary-container text-white px-8 py-4 font-headline font-bold uppercase tracking-widest hover:shadow-[0_0_35px_rgba(128,0,0,0.6)]">Explore VaiTAL</a>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#0E0E0E] py-16 px-8 border-t border-outline-variant/10 mt-32">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+        <div>
+            <div class="text-2xl font-black text-white tracking-[0.3em] font-headline mb-4">MAESTRO</div>
+            <p class="font-label text-xs text-white/30 uppercase tracking-[0.2em]">© 2024 RUZZEL MAESTRO. All Rights Reserved.</p>
+        </div>
+        <div class="flex gap-8">
+            <a href="index.html" class="font-label text-xs text-white/40 hover:text-primary transition-colors uppercase tracking-widest">Home</a>
+            <a href="index.html#case-studies" class="font-label text-xs text-white/40 hover:text-primary transition-colors uppercase tracking-widest">Case Studies</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
