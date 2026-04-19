@@ -4,7 +4,7 @@
 **Participants:** Rick / Ruzzel (owner), @lisa (documentation), @jony-ive (design + screenshots), @tony-stark (copy + deployment), @light (screenshots, deferred), @l-lawliet (review)
 **Status:** Draft — live session, active decisions still incoming
 **Confidence:** Medium
-Core structure, design system, and case study list are settled. 3 of 7 case study pages still need to be built. Screenshot pipeline and per-case-study copy are unresolved dependencies.
+Core structure, design system, and case study list are settled. Tech stack decision (framework TBD by @tony-stark) and design handoff (`rocketturtles-handoff`) pending. 3 of 7 case study pages still need to be built.
 
 ---
 
@@ -38,29 +38,31 @@ Core structure, design system, and case study list are settled. 3 of 7 case stud
 
 ## 3. Proposed Solution Shape
 
-- **Product type:** Static portfolio website (HTML5 + Tailwind CSS CDN + Vanilla JS)
+- **Product type:** Portfolio website — full production build (NOT static prototype)
 - **Core interaction model:** Browse/consume — visitors scroll through hero, skills, and case studies, then initiate contact
 - **Key differentiator:** Positions Rick as "The Elite Architect of Automation" — premium, focused, high-conviction aesthetic. Not a generic portfolio template.
-- **Delivery model:** Static files, Git → Vercel (migrating from Netlify — no build process required)
-- **Evidence quality:** Settled
+- **Delivery model:** Git → Vercel. Domain: **rocketturtles.com** (Rick-owned, free Vercel plan supports custom domains with auto-SSL)
+- **Tech stack:** To be determined by @tony-stark — must use whatever complete framework is appropriate for production (the existing HTML files are design prototypes only, not the shipping codebase)
+- **Evidence quality:** Settled (with stack TBD)
 
 ---
 
 ## 4. Repository & Technical Details
 
 - **Repo:** `Lezzur/ruzzel-maestro-portfolio`
-- **Stack:** HTML5 / Tailwind CSS (CDN) / Vanilla JS / Static
-- **Design system:** Defined in `docs/DESIGN_SYSTEM.md`
-- **Deployment target:** Vercel (no build step — static HTML push-to-deploy)
+- **Stack:** TBD — @tony-stark to decide appropriate production framework. **The existing `.html` files in the repo are design prototypes only — not the shipping codebase.**
+- **Design source:** Rick provided updated design handoff as `rocketturtles-handoff` in the repo. @jony-ive to locate and apply.
+- **Design system reference:** `docs/DESIGN_SYSTEM.md` (may be superseded by `rocketturtles-handoff`)
+- **Domain:** `rocketturtles.com` (Rick owns it). Compatible with Vercel free (Hobby) plan — no extra cost, auto-SSL via Let's Encrypt, A record for apex domain.
+- **Deployment target:** Vercel
 - **Previous deployment:** Netlify (being migrated)
-- **Case study pages (existing):** `gonogo.html`, `asbuilt.html`, `nodeadfish.html`, `vaital.html`
-- **Case study pages (missing):** `protoculture.html`, `accounting-service.html`, `shaiya.html`
+- **Screenshot order:** Protoculture → Accounting-service → Shaiya → Gonogo → Nodeadfish → VaiTAL → asBuilt (Rick's specified order, per @light's assignment)
 
 ---
 
-## 5. Design System (Locked)
+## 5. Design System (Updated)
 
-Approved by Rick in this session. Defined in `docs/DESIGN_SYSTEM.md`.
+Base tokens below from original `docs/DESIGN_SYSTEM.md`. Rick has provided an updated design handoff (`rocketturtles-handoff` in repo) — @jony-ive to review and apply. The handoff supersedes the original where they conflict.
 
 | Token | Value | Usage |
 |---|---|---|
@@ -95,7 +97,7 @@ Rick confirmed 7 case studies. Protoculture is the strongest.
 
 | # | Project | Repo | Live URL | Stack | Status | Page |
 |---|---------|------|----------|-------|--------|------|
-| 1 | **Protoculture** (MacrossV2) | `Lezzur/protoculture` | — | JavaScript/Node.js | Pre-build, specs complete | Missing — priority |
+| 1 | **Protoculture** (Macross) | `Lezzur/protoculture` | — | JavaScript/Node.js | **Built and live** (this is the app we're on right now) | Missing — priority |
 | 2 | **Gonogo** | `Lezzur/gonogo` | gonogo-neon.vercel.app | Python | Shipped | `gonogo.html` ✓ |
 | 3 | **Nodeadfish** (Job Offer Composer) | `Lezzur/nodeadfish` | — | Next.js + Firebase + Gemini | Built | `nodeadfish.html` ✓ |
 | 4 | **VaiTAL** | `Lezzur/VaiTAL` | vaital.vercel.app | Next.js + Supabase + Gemini | Built | `vaital.html` ✓ |
@@ -104,7 +106,7 @@ Rick confirmed 7 case studies. Protoculture is the strongest.
 | 7 | **asBuilt** | `Lezzur/asBuilt` | — | Next.js + Firebase | Built | `asbuilt.html` ✓ |
 
 ### Protoculture — What It Is (Strongest Case Study)
-A complete rebuild of the Macross multi-agent chat platform. Protoculture is the execution backend powering an agent orchestration system with 7+ agent phases, multi-provider support (Claude, Gemini, OpenAI), and a Docker-based deployment. All specs are implementation-ready. Positions Rick as someone who builds production-grade AI infrastructure — not just wrappers.
+This is Macross — the multi-agent platform we're running on right now. Built, functioning, and live. Protoculture is the execution backend powering multi-agent orchestration: multi-provider support (Claude, Gemini, OpenAI), Docker-based deployment, agent personalities, room-based collaboration, real-time routing. The strongest case study because it's the most complex system Rick has shipped, and it's demonstrably running in production.
 
 ### Gonogo — What It Is
 Autonomous AI agent that crawls a web app, runs quality audits across 7 lenses (functionality, design, UX, performance, accessibility, code, content), and delivers dual reports — one for humans, one for coding AIs. Python-based with a web UI.
@@ -171,8 +173,8 @@ AI-powered codebase scanner. Analyzes a codebase and generates two documents: a 
 ## 10. Constraints and Risks
 
 ### Hard Constraints
-- Static only — no server, no build step (this is a constraint and a feature)
-- Netlify → Vercel migration: no-touch, just change deployment target
+- Must ship as a proper production build (not static prototype files)
+- Domain: rocketturtles.com on Vercel free plan (confirmed feasible)
 - No location on site
 
 ### Key Risks
@@ -192,10 +194,13 @@ AI-powered codebase scanner. Analyzes a codebase and generates two documents: a 
 | No location on site | Rick works from anywhere — location is irrelevant and potentially limiting | Rick | 2026-04-19 |
 | Copy extracted from project repos | Placeholder copy is worse than no copy — source from actual spec docs | Rick | 2026-04-19 |
 | Screenshots deferred | Unblocks page builds; @light handles separately | Rick | 2026-04-19 |
-| Static HTML + Tailwind (no framework) | No build pipeline needed; instant deploy; already built | Design/Dev | Prior sessions |
+| Static HTML files are design prototypes only | The existing .html files are not the shipping codebase — @tony-stark to determine production framework | Rick | 2026-04-19 |
 | Dark maroon design system | Premium, elite positioning — "Elite Architect of Automation" | Jony Ive | Prior sessions |
 | Deployment: Netlify → Vercel | Consolidating to Vercel across all projects | Rick | 2026-04-19 |
-| Protoculture = strongest case study | Most technically complex; demonstrates AI infrastructure depth | Rick | 2026-04-19 |
+| Domain: rocketturtles.com | Rick owns this URL; Vercel free plan supports it with auto-SSL | Rick | 2026-04-19 |
+| Protoculture = strongest case study | It IS Macross — built, live, running right now | Rick | 2026-04-19 |
+| Updated design handoff: rocketturtles-handoff | Rick provided updated design in repo; supersedes original DESIGN_SYSTEM.md where they conflict | Rick | 2026-04-19 |
+| Screenshot order confirmed | Protoculture → Accounting-service → Shaiya → Gonogo → Nodeadfish → VaiTAL → asBuilt | Rick | 2026-04-19 |
 
 ---
 
@@ -207,7 +212,9 @@ All items are either resolved or genuinely post-launch decisions.
 |---|----------|--------|
 | OQ-1 | Which screenshots needed per case study page? | Resolved — @jony-ive browsing repos to produce the list |
 | OQ-2 | Contact form / CTA mechanism on portfolio site? | Resolved — out of v1 scope (static site, no form backend) |
-| OQ-3 | Domain / URL for the portfolio? | Open — not stated in session. Assumed Vercel subdomain or custom domain. **Rick to confirm.** |
+| OQ-3 | Domain / URL for the portfolio? | Resolved — rocketturtles.com. Vercel free plan supports it. |
+| OQ-4 | What production framework for the website? | Open — @tony-stark to decide. Static HTML files are prototypes only. Must use whatever complete tech is appropriate. |
+| OQ-5 | Where is the `rocketturtles-handoff` design file? | Open — Rick says it's in the repo but not visible in root or docs/. @jony-ive to locate. |
 
 ---
 
@@ -215,12 +222,12 @@ All items are either resolved or genuinely post-launch decisions.
 
 - **Proceed to build?** Yes — unblocked
 - **Immediate next steps:**
-  1. @jony-ive: Browse each repo, produce screenshot list
-  2. @tony-stark: Build 3 missing case study pages (protoculture, accounting-service, shaiya) using copy from project repos
-  3. @tony-stark: Set up git → Vercel deployment (no build, push-to-deploy)
-  4. @light: Screenshots pipeline (post-blocker, async)
-- **Suggested focus:** Protoculture page first — it's the strongest case study and sets the quality bar for the other two missing pages
-- **Launch gate:** All 7 case study pages built + Vercel deployment live. Screenshots are post-launch additive.
+  1. @jony-ive: Locate `rocketturtles-handoff` design file in repo and apply updated design direction
+  2. @tony-stark: Decide production framework, build the site (HTML files are prototypes only)
+  3. @tony-stark: Wire rocketturtles.com → Vercel (A record at DNS registrar, free plan)
+  4. @light: Screenshots in Rick's specified order — Protoculture → Accounting-service → Shaiya → Gonogo → Nodeadfish → VaiTAL → asBuilt
+- **Suggested focus:** Protoculture page first — it's live (Macross), most complex, sets the bar
+- **Launch gate:** All 7 case study pages built + rocketturtles.com live on Vercel. Screenshots additive post-launch.
 
 ---
 
